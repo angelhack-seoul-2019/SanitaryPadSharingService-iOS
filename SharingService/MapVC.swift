@@ -60,10 +60,6 @@ class MapVC: UIViewController {
         goodButton.setBackgroundImage (UIImage(named: "whiteGoods"), for: .normal)
         supportButton.setBackgroundImage(UIImage(named: "redSupport"), for: .normal)
     }
-    
-    @IBAction func refreshBtnClick(_ sender: Any) {
-        updateLocation()
-    }
     @IBAction func gpsBtnClick(_ sender: Any) {
         
     }

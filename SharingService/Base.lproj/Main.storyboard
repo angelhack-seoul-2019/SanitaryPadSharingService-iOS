@@ -44,17 +44,6 @@
                                     <action selector="supportBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qP4-yE-xY0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nS9-yj-8Fb">
-                                <rect key="frame" x="346" y="602" width="51" height="51"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="51" id="NAP-5n-6CQ"/>
-                                    <constraint firstAttribute="width" constant="51" id="rGC-dc-uoR"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="refresh"/>
-                                <connections>
-                                    <action selector="refreshBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RXP-F0-vnF"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIe-g7-smh">
                                 <rect key="frame" x="346" y="681" width="51" height="51"/>
                                 <constraints>
@@ -74,11 +63,9 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5js-qB-vI4" secondAttribute="trailing" id="CCh-yc-5xD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dIe-g7-smh" secondAttribute="trailing" constant="17" id="Qj3-0G-YxE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5js-qB-vI4" secondAttribute="bottom" id="VEN-Ro-3dT"/>
-                            <constraint firstItem="dIe-g7-smh" firstAttribute="top" secondItem="nS9-yj-8Fb" secondAttribute="bottom" constant="28" id="XYx-KP-k1V"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="X0x-23-oEk" secondAttribute="bottom" constant="41" id="Zc5-AW-bg6"/>
                             <constraint firstItem="X0x-23-oEk" firstAttribute="top" secondItem="dIe-g7-smh" secondAttribute="bottom" constant="18" id="byI-PX-khu"/>
                             <constraint firstItem="5js-qB-vI4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hr2-VI-U9g"/>
-                            <constraint firstAttribute="trailing" secondItem="nS9-yj-8Fb" secondAttribute="trailing" constant="17" id="kbO-xM-7S7"/>
                             <constraint firstItem="5js-qB-vI4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vR3-TL-grG"/>
                             <constraint firstItem="dV8-YH-tDA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25.300000000000001" id="yGG-To-3DY"/>
                         </constraints>
@@ -152,7 +139,6 @@
     <resources>
         <image name="gps" width="31.5" height="31.5"/>
         <image name="redGoods" width="97" height="39.5"/>
-        <image name="refresh" width="31.5" height="31.5"/>
         <image name="whiteSupport" width="100" height="42.5"/>
     </resources>
 </document>
