@@ -17,18 +17,18 @@ struct OrgListService {
         
         Alamofire.request("\(APIConstants.OrgURL)/\(lat)/\(lon)/\(type)").responseJSON {
             response in
-            print("response: \(response)")
-            print("response.result : \(response.result)")
+//            print("response: \(response)")
+//            print("response.result : \(response.result)")
             
             switch response.result{
             case .success:
                 
                 guard let result = response.data else {return}
-                print(result)
+//                print(result)
                 do{
                     let decoder = JSONDecoder()
                     let json = try decoder.decode(OrgListResult.self, from: result)
-                    print("json : \(json)")
+//                    print("json : \(json)")
                     
                     completion(json.data)
                 } catch {
