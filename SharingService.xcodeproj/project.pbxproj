@@ -78,11 +78,11 @@
 				3AAF774822A29F0100F0487B /* AppDelegate.swift */,
 				3AAF775422A29F0100F0487B /* Info.plist */,
 				3AAF775B22A2B78500F0487B /* Resources */,
-				3AAF775A22A2B75C00F0487B /* Storyboards */,
-				3AAF775C22A2B79E00F0487B /* APIServices */,
-				3AAF775D22A2B7AB00F0487B /* Models */,
+				3AAF776A22A31C1200F0487B /* Models */,
+				3AAF776F22A31E9F00F0487B /* Views */,
 				3AAF775E22A2B7B800F0487B /* Controllers */,
-				3AAF776522A2EBF900F0487B /* View */,
+				3AAF776E22A31E8800F0487B /* APIServices */,
+				3AAF775A22A2B75C00F0487B /* Storyboards */,
 			);
 			path = SharingService;
 			sourceTree = "<group>";
@@ -104,25 +104,6 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		3AAF775C22A2B79E00F0487B /* APIServices */ = {
-			isa = PBXGroup;
-			children = (
-				3AAF776122A2C6B300F0487B /* OrgListService.swift */,
-				068571D822A2E50700A7C664 /* OrgScheduleService.swift */,
-			);
-			path = APIServices;
-			sourceTree = "<group>";
-		};
-		3AAF775D22A2B7AB00F0487B /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				3AAF775F22A2C25A00F0487B /* APIConstants.swift */,
-				3AAF776322A2D2FE00F0487B /* OrgListResult.swift */,
-				068571DA22A2E77900A7C664 /* OrgScheduleResult.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		3AAF775E22A2B7B800F0487B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,13 +112,32 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		3AAF776522A2EBF900F0487B /* View */ = {
+		3AAF776A22A31C1200F0487B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3AAF775F22A2C25A00F0487B /* APIConstants.swift */,
+				3AAF776322A2D2FE00F0487B /* OrgListResult.swift */,
+				068571DA22A2E77900A7C664 /* OrgScheduleResult.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		3AAF776E22A31E8800F0487B /* APIServices */ = {
+			isa = PBXGroup;
+			children = (
+				3AAF776122A2C6B300F0487B /* OrgListService.swift */,
+				068571D822A2E50700A7C664 /* OrgScheduleService.swift */,
+			);
+			name = APIServices;
+			sourceTree = "<group>";
+		};
+		3AAF776F22A31E9F00F0487B /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				3AAF776622A2EC8500F0487B /* DetailView.swift */,
 				3AAF776822A2EC8F00F0487B /* DetailView.xib */,
 			);
-			path = View;
+			name = Views;
 			sourceTree = "<group>";
 		};
 		5913D32E4B1B589F5D89544D /* Pods */ = {

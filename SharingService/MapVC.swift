@@ -33,7 +33,7 @@ class MapVC: UIViewController {
         setNaverMapDelegate()
         dateFormatter.dateFormat = "yyyyMMdd"
         dateInt = Int(dateFormatter.string(from: today)) ?? 0
-        setDetailView()
+//        setDetailView()
 //        detailView.isHidden = true
         
         OrgScheduleService.shared.getSchedule(1, 20190602){
@@ -126,7 +126,7 @@ extension MapVC: NMFMapViewDelegate {
     
     // 카메라 위치 갱신
     func updateCamera(_ latitude:CLLocationDegrees , _ longitude: CLLocationDegrees) {
-        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: latitude, lng: longitude), zoomTo: 13.0)
+        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: latitude, lng: longitude), zoomTo: 16.0)
         mapView.moveCamera(cameraUpdate)
     }
     func updateCamera(_ latitude:CLLocationDegrees , _ longitude: CLLocationDegrees, _ zoom: Double){
