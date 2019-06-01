@@ -1,16 +1,20 @@
 PODS:
+  - Alamofire (4.8.2)
   - NMapsMap (3.2.1)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.8.2)
   - NMapsMap (~> 3.2.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - NMapsMap
 
 SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   NMapsMap: 432c7f5e90f5c406d52c3137f425143352d78430
 
-PODFILE CHECKSUM: 78b65822de7969a216e63c47b15d7463b82bc769
+PODFILE CHECKSUM: 2f897ab14341d5c9c698cd77e27d715253c13ecf
 
 COCOAPODS: 1.6.1

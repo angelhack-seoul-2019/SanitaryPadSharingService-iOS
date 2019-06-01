@@ -9,7 +9,7 @@
 import UIKit
 import NMapsMap
 
-class ViewController: UIViewController {
+class MapVC: UIViewController {
 
     // MARK: - instances
     let locationManager = CLLocationManager()
@@ -30,7 +30,7 @@ class ViewController: UIViewController {
 }
 
 // MARK: - CLLocationManagerDelegate
-extension ViewController: CLLocationManagerDelegate {
+extension MapVC: CLLocationManagerDelegate {
     
     func updateLocation(){
         self.locationManager.delegate = self                  // 뷰 컨트롤러를 로케이션 매니저 객체에 대한 앱델리게이트로 선언
@@ -46,6 +46,11 @@ extension ViewController: CLLocationManagerDelegate {
             
             updateMarker(coor.latitude, coor.longitude)
             updateCamera(coor.latitude, coor.longitude)
+            OrgListService.shared.getList(coor.latitude, coor.longitude, 0) {
+                data in
+                // data 배열을 가지고 지도에 mapping 하는 기능
+                return
+            }
         }
     }
     
@@ -55,7 +60,7 @@ extension ViewController: CLLocationManagerDelegate {
 }
 
 // MARK: - NMFMapViewDelegate
-extension ViewController: NMFMapViewDelegate {
+extension MapVC: NMFMapViewDelegate {
     func setNaverMapDelegate(){
         self.mapView.delegate = self
     }

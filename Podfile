@@ -7,5 +7,6 @@ target 'SharingService' do
 
   # Pods for SharingService
   pod 'NMapsMap', '~> 3.2.1'
+  pod 'Alamofire', '~> 4.8.2'
 
 end
