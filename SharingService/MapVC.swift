@@ -51,16 +51,22 @@ class MapVC: UIViewController {
     }
     @IBAction func goodsBtnClick(_ sender: UIButton) {
         
-        goodButton.setBackgroundImage(UIImage(named: "redGoods"), for: .selected)
-        supportButton.setBackgroundImage(UIImage(named: "whiteSupport"), for: .selected)
-        print("goods")
+        goodButton.setBackgroundImage(UIImage(named: "redGoods"), for: .normal)
+        supportButton.setBackgroundImage(UIImage(named: "whiteSupport"), for: .normal)
+        
     }
     @IBAction func supportBtnClick(_ sender: UIButton) {
         
-        goodButton.setBackgroundImage (UIImage(named: "whiteGoods"), for: .selected)
-        supportButton.setBackgroundImage(UIImage(named: "redSupport"), for: .selected)
+        goodButton.setBackgroundImage (UIImage(named: "whiteGoods"), for: .normal)
+        supportButton.setBackgroundImage(UIImage(named: "redSupport"), for: .normal)
     }
     
+    @IBAction func refreshBtnClick(_ sender: Any) {
+        updateLocation()
+    }
+    @IBAction func gpsBtnClick(_ sender: Any) {
+        
+    }
     
 }
 
