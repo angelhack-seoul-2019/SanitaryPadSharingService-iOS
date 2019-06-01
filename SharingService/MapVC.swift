@@ -21,6 +21,9 @@ class MapVC: UIViewController {
     var reloadData = true
     var orgDatas: [OrgDatas] = []
     
+    @IBOutlet weak var goodButton: UIButton!
+    @IBOutlet weak var supportButton: UIButton!
+    
     // MARK: - outlet
     @IBOutlet weak var mapView: NMFMapView!
     
@@ -32,11 +35,33 @@ class MapVC: UIViewController {
         dateInt = Int(dateFormatter.string(from: today)) ?? 0
         setDetailView()
 //        detailView.isHidden = true
+        
+        OrgScheduleService.shared.getSchedule(1, 20190602){
+            data in
+            //data 배열은 해당마커를 클릭했을때 나오는 일정들
+            for schedule in data {
+                
+            }
+            return
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         updateLocation()
     }
+    @IBAction func goodsBtnClick(_ sender: UIButton) {
+        
+        goodButton.setBackgroundImage(UIImage(named: "redGoods"), for: .selected)
+        supportButton.setBackgroundImage(UIImage(named: "whiteSupport"), for: .selected)
+        print("goods")
+    }
+    @IBAction func supportBtnClick(_ sender: UIButton) {
+        
+        goodButton.setBackgroundImage (UIImage(named: "whiteGoods"), for: .selected)
+        supportButton.setBackgroundImage(UIImage(named: "redSupport"), for: .selected)
+    }
+    
+    
 }
 
 // MARK: - CLLocationManagerDelegate
