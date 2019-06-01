@@ -13,13 +13,14 @@ class MapVC: UIViewController {
     
     // MARK: - instances
     let locationManager = CLLocationManager()
-    let marker = NMFMarker()
+    let curLocationMarker = NMFMarker()
     let today = Date() //현재 시각 구하기
     let dateFormatter = DateFormatter()
     var detailView = DetailView.instanceFromNib()
     var dateInt: Int = 0
     var reloadData = true
     var orgDatas: [OrgDatas] = []
+    var selectedMarker = NMFMarker()
     
     @IBOutlet weak var goodButton: UIButton!
     @IBOutlet weak var supportButton: UIButton!
@@ -33,8 +34,9 @@ class MapVC: UIViewController {
         setNaverMapDelegate()
         dateFormatter.dateFormat = "yyyyMMdd"
         dateInt = Int(dateFormatter.string(from: today)) ?? 0
-//        setDetailView()
-//        detailView.isHidden = true
+        setDetailView()
+        detailView.isHidden = true
+        curLocationMarker.iconImage = NMFOverlayImage(name: "location")
         
         OrgScheduleService.shared.getSchedule(1, 20190602){
             data in
@@ -93,14 +95,18 @@ extension MapVC: CLLocationManagerDelegate {
                         let marker = NMFMarker()
                         marker.position = NMGLatLng(lat: data[i].lat, lng: data[i].lon)
                         marker.mapView = self.mapView
-                        marker.userInfo = ["tag": i]
+                        marker.iconImage = NMFOverlayImage(name: "unselected")
                         
                         marker.touchHandler = { (marker) -> Bool in
+                            self.selectedMarker.iconImage = NMFOverlayImage(name: "unselected")
+                            (marker as! NMFMarker).iconImage = NMFOverlayImage(name: "selected")
+                            self.selectedMarker = (marker as! NMFMarker)
                             self.detailView.isHidden = false
+                            self.updateCamera(data[i].lat, data[i].lon, 16)
+                            
                             return true
                         }
                     }
-                    
                     return
                 }
             }
@@ -120,13 +126,13 @@ extension MapVC: NMFMapViewDelegate {
     
     // 마커 갱신
     func updateMarker(_ latitude:CLLocationDegrees , _ longitude: CLLocationDegrees){
-        marker.position = NMGLatLng(lat: latitude, lng: longitude)
-        marker.mapView = mapView
+        curLocationMarker.position = NMGLatLng(lat: latitude, lng: longitude)
+        curLocationMarker.mapView = mapView
     }
     
     // 카메라 위치 갱신
     func updateCamera(_ latitude:CLLocationDegrees , _ longitude: CLLocationDegrees) {
-        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: latitude, lng: longitude), zoomTo: 16.0)
+        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: latitude, lng: longitude), zoomTo: 13.0)
         mapView.moveCamera(cameraUpdate)
     }
     func updateCamera(_ latitude:CLLocationDegrees , _ longitude: CLLocationDegrees, _ zoom: Double){
@@ -137,7 +143,9 @@ extension MapVC: NMFMapViewDelegate {
     // 지도 탭
     func didTapMapView(_ point: CGPoint, latLng latlng: NMGLatLng) {
         print("지도 탭 \(latlng.lat),\(latlng.lng)")
-//        self.detailView.isHidden = true
+        self.detailView.isHidden = true
+        updateCamera(curLocationMarker.position.lat, curLocationMarker.position.lng)
+        selectedMarker.iconImage = NMFOverlayImage(name: "unselected")
     }
 
 }
@@ -157,8 +165,6 @@ extension MapVC {
         }
         self.view.addSubview(detailView)
     }
-    
-
     
     func putDetailInfo(data: OrgDatas){
         
