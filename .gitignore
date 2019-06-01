@@ -1,0 +1,810 @@
+❯ git remote add origin https://github.com/angelhack-seoul-2019/SanitaryPadSharingService-iOS.git
+fatal: not a git repository (or any of the parent directories): .git
+
+~/skhu/2019/AngelHack/SharingService
+❯ git init
+Initialized empty Git repository in /Users/lim/skhu/2019/AngelHack/SharingService/.git/
+
+~/skhu/2019/AngelHack/SharingService master*
+❯ git remote add origin https://github.com/angelhack-seoul-2019/SanitaryPadSharingService-iOS.git
+
+~/skhu/2019/AngelHack/SharingService master*
+❯ pod init
+
+~/skhu/2019/AngelHack/SharingService master*
+❯ vim Podfile
+
+~/skhu/2019/AngelHack/SharingService master* 29s
+❯ pod install
+Analyzing dependencies
+Downloading dependencies
+Installing NMapsMap (3.3.0)
+Generating Pods project
+Integrating client project
+
+[!] Please close any current Xcode sessions and use `SharingService.xcworkspace` for this project from now on.
+Sending stats
+Pod installation complete! There is 1 dependency from the Podfile and 1 total pod installed.
+
+[!] Automatically assigning platform `ios` with version `12.2` on target `SharingService` because no platform was specified. Please specify a platform for this target in your Podfile. See `https://guides.cocoapods.org/syntax/podfile.html#platform`.
+
+~/skhu/2019/AngelHack/SharingService master*
+❯ pod update
+Update all pods
+Updating local specs repositories
+  $ /usr/local/bin/git -C /Users/lim/.cocoapods/repos/master fetch origin
+  --progress
+  remote: Enumerating objects: 10312, done.
+  remote: Counting objects: 100% (10312/10312), done.
+  remote: Compressing objects: 100% (2582/2582), done.
+  remote: Total 18248 (delta 8116), reused 9520 (delta 7487), pack-reused 7936
+  Receiving objects: 100% (18248/18248), 2.30 MiB | 2.39 MiB/s, done.
+  Resolving deltas: 100% (11864/11864), completed with 2140 local objects.
+  From https://github.com/CocoaPods/Specs
+     e1e5ebc0ea7..5e4afaaa301  master     -> origin/master
+  $ /usr/local/bin/git -C /Users/lim/.cocoapods/repos/master rev-parse
+  --abbrev-ref HEAD
+  master
+  $ /usr/local/bin/git -C /Users/lim/.cocoapods/repos/master reset --hard
+  origin/master
+  HEAD is now at 5e4afaaa301 [Add] DWReader 0.0.0.14
+warning: inexact rename detection was skipped due to too many files.
+warning: you may want to set your diff.renameLimit variable to at least 1812 and retry the command.
+
+CocoaPods 1.7.1 is available.
+To update use: `sudo gem install cocoapods`
+
+For more information, see https://blog.cocoapods.org and the CHANGELOG for this version at https://github.com/CocoaPods/CocoaPods/releases/tag/1.7.1
+
+Analyzing dependencies
+Downloading dependencies
+Using NMapsMap (3.3.0)
+Generating Pods project
+Integrating client project
+Sending stats
+Pod installation complete! There is 1 dependency from the Podfile and 1 total pod installed.
+
+[!] Automatically assigning platform `ios` with version `12.2` on target `SharingService` because no platform was specified. Please specify a platform for this target in your Podfile. See `https://guides.cocoapods.org/syntax/podfile.html#platform`.
+
+~/skhu/2019/AngelHack/SharingService master* 46s
+❯ vim Podfile
+
+~/skhu/2019/AngelHack/SharingService master* 1m 6s
+❯ pod update
+Update all pods
+Updating local specs repositories
+  $ /usr/local/bin/git -C /Users/lim/.cocoapods/repos/master fetch origin
+  --progress
+  remote: Enumerating objects: 27, done.
+  remote: Counting objects: 100% (27/27), done.
+  remote: Compressing objects: 100% (11/11), done.
+  remote: Total 18 (delta 11), reused 9 (delta 5), pack-reused 0
+  From https://github.com/CocoaPods/Specs
+     5e4afaaa301..bbc620fa1db  master     -> origin/master
+  $ /usr/local/bin/git -C /Users/lim/.cocoapods/repos/master rev-parse
+  --abbrev-ref HEAD
+  master
+  $ /usr/local/bin/git -C /Users/lim/.cocoapods/repos/master reset --hard
+  origin/master
+  HEAD is now at bbc620fa1db [Add] CCNIMLib 0.1.9
+
+CocoaPods 1.7.1 is available.
+To update use: `sudo gem install cocoapods`
+
+For more information, see https://blog.cocoapods.org and the CHANGELOG for this version at https://github.com/CocoaPods/CocoaPods/releases/tag/1.7.1
+
+Analyzing dependencies
+Downloading dependencies
+Using NMapsMap (3.3.0)
+Generating Pods project
+Integrating client project
+Sending stats
+Pod installation complete! There is 1 dependency from the Podfile and 1 total pod installed.
+
+[!] Automatically assigning platform `ios` with version `12.2` on target `SharingService` because no platform was specified. Please specify a platform for this target in your Podfile. See `https://guides.cocoapods.org/syntax/podfile.html#platform`.
+
+~/skhu/2019/AngelHack/SharingService master* 39s
+❯ cd ..
+
+~/skhu/2019/AngelHack
+❯ cd SharingService
+
+~/skhu/2019/AngelHack/SharingService
+❯ pod init
+
+~/skhu/2019/AngelHack/SharingService
+❯ vim Podfile
+
+~/skhu/2019/AngelHack/SharingService 20s
+❯ pod install
+Analyzing dependencies
+Downloading dependencies
+Installing NMapsMap (3.3.0)
+Generating Pods project
+Integrating client project
+
+[!] Please close any current Xcode sessions and use `SharingService.xcworkspace` for this project from now on.
+Sending stats
+Pod installation complete! There is 1 dependency from the Podfile and 1 total pod installed.
+
+[!] Automatically assigning platform `ios` with version `12.2` on target `SharingService` because no platform was specified. Please specify a platform for this target in your Podfile. See `https://guides.cocoapods.org/syntax/podfile.html#platform`.
+
+~/skhu/2019/AngelHack/SharingService
+❯ vim Podfile
+
+~/skhu/2019/AngelHack/SharingService 22s
+❯ pod update
+Update all pods
+
+――― MARKDOWN TEMPLATE ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+
+### Command
+
+```
+/usr/local/bin/pod update
+```
+
+### Report
+
+* What did you do?
+
+* What did you expect to happen?
+
+* What happened instead?
+
+
+### Stack
+
+```
+   CocoaPods : 1.6.1
+        Ruby : ruby 2.3.7p456 (2018-03-28 revision 63024) [universal.x86_64-darwin18]
+    RubyGems : 2.5.2.3
+        Host : Mac OS X 10.14.4 (18E226)
+       Xcode : 10.2.1 (10E1001)
+         Git : git version 2.18.0
+Ruby lib dir : /System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib
+Repositories : master - https://github.com/CocoaPods/Specs.git @ bbc620fa1db434e96b546053abc4cd9a155ca99e
+```
+
+### Plugins
+
+```
+cocoapods-deintegrate : 1.0.4
+cocoapods-plugins     : 1.0.0
+cocoapods-search      : 1.0.0
+cocoapods-stats       : 1.1.0
+cocoapods-trunk       : 1.3.1
+cocoapods-try         : 1.1.0
+```
+
+### Podfile
+
+```ruby
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'SharingService' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for SharingService
+  pod 'NMapsMap', '->3.2.1'
+
+end
+```
+
+### Error
+
+```
+ArgumentError - Illformed requirement `"->3.2.1"`
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/requirement.rb:63:in `parse'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/requirement.rb:88:in `block in initialize'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/requirement.rb:88:in `map!'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/requirement.rb:88:in `initialize'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/requirement.rb:34:in `new'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/requirement.rb:34:in `create'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/dependency.rb:115:in `initialize'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/podfile/target_definition.rb:899:in `new'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/podfile/target_definition.rb:899:in `block in pod_dependencies'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/podfile/target_definition.rb:895:in `map'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/podfile/target_definition.rb:895:in `pod_dependencies'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/podfile/target_definition.rb:96:in `non_inherited_dependencies'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/podfile/target_definition.rb:74:in `dependencies'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/lib/cocoapods/installer/analyzer/podfile_dependency_cache.rb:43:in `block in from_podfile'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/lib/cocoapods/installer/analyzer/podfile_dependency_cache.rb:42:in `each'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/lib/cocoapods/installer/analyzer/podfile_dependency_cache.rb:42:in `from_podfile'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/lib/cocoapods/installer/analyzer.rb:76:in `initialize'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/lib/cocoapods/installer.rb:272:in `new'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/lib/cocoapods/installer.rb:272:in `create_analyzer'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/lib/cocoapods/installer.rb:167:in `resolve_dependencies'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/lib/cocoapods/installer.rb:136:in `install!'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/lib/cocoapods/command/update.rb:97:in `run'
+/Library/Ruby/Gems/2.3.0/gems/claide-1.0.2/lib/claide/command.rb:334:in `run'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/lib/cocoapods/command.rb:52:in `run'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/bin/pod:55:in `<top (required)>'
+/usr/local/bin/pod:22:in `load'
+/usr/local/bin/pod:22:in `<main>'
+```
+
+――― TEMPLATE END ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+
+[!] Oh no, an error occurred.
+
+Search for existing GitHub issues similar to yours:
+https://github.com/CocoaPods/CocoaPods/search?q=Illformed+requirement+%60%22-%3E3.2.1%22%60&type=Issues
+
+If none exists, create a ticket, with the template displayed above, on:
+https://github.com/CocoaPods/CocoaPods/issues/new
+
+Be sure to first read the contributing guide for details on how to properly submit a ticket:
+https://github.com/CocoaPods/CocoaPods/blob/master/CONTRIBUTING.md
+
+Don't forget to anonymize any private data!
+
+Looking for related issues on cocoapods/cocoapods...
+ - ArgumentError - Illformed requirement `"~>pod 3.0.4"`
+   https://github.com/CocoaPods/CocoaPods/issues/4938 [closed] [1 comment]
+   24 Feb 2016
+
+ - ArgumentError - Illformed requirement `" UI = 0.1.0"`
+   https://github.com/CocoaPods/CocoaPods/issues/2898 [closed] [18 comments]
+   02 Dec 2015
+
+
+~/skhu/2019/AngelHack/SharingService
+❯ pod cache clean NMapsMap
+
+~/skhu/2019/AngelHack/SharingService
+❯ pod update NMapsMap
+
+――― MARKDOWN TEMPLATE ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+
+### Command
+
+```
+/usr/local/bin/pod update NMapsMap
+```
+
+### Report
+
+* What did you do?
+
+* What did you expect to happen?
+
+* What happened instead?
+
+
+### Stack
+
+```
+   CocoaPods : 1.6.1
+        Ruby : ruby 2.3.7p456 (2018-03-28 revision 63024) [universal.x86_64-darwin18]
+    RubyGems : 2.5.2.3
+        Host : Mac OS X 10.14.4 (18E226)
+       Xcode : 10.2.1 (10E1001)
+         Git : git version 2.18.0
+Ruby lib dir : /System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib
+Repositories : master - https://github.com/CocoaPods/Specs.git @ bbc620fa1db434e96b546053abc4cd9a155ca99e
+```
+
+### Plugins
+
+```
+cocoapods-deintegrate : 1.0.4
+cocoapods-plugins     : 1.0.0
+cocoapods-search      : 1.0.0
+cocoapods-stats       : 1.1.0
+cocoapods-trunk       : 1.3.1
+cocoapods-try         : 1.1.0
+```
+
+### Podfile
+
+```ruby
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'SharingService' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for SharingService
+  pod 'NMapsMap', '->3.2.1'
+
+end
+```
+
+### Error
+
+```
+ArgumentError - Illformed requirement `"->3.2.1"`
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/requirement.rb:63:in `parse'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/requirement.rb:88:in `block in initialize'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/requirement.rb:88:in `map!'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/requirement.rb:88:in `initialize'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/requirement.rb:34:in `new'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/requirement.rb:34:in `create'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/dependency.rb:115:in `initialize'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/podfile/target_definition.rb:899:in `new'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/podfile/target_definition.rb:899:in `block in pod_dependencies'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/podfile/target_definition.rb:895:in `map'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/podfile/target_definition.rb:895:in `pod_dependencies'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/podfile/target_definition.rb:96:in `non_inherited_dependencies'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/podfile/target_definition.rb:74:in `dependencies'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/lib/cocoapods/installer/analyzer/podfile_dependency_cache.rb:43:in `block in from_podfile'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/lib/cocoapods/installer/analyzer/podfile_dependency_cache.rb:42:in `each'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/lib/cocoapods/installer/analyzer/podfile_dependency_cache.rb:42:in `from_podfile'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/lib/cocoapods/installer/analyzer.rb:76:in `initialize'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/lib/cocoapods/installer.rb:272:in `new'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/lib/cocoapods/installer.rb:272:in `create_analyzer'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/lib/cocoapods/installer.rb:167:in `resolve_dependencies'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/lib/cocoapods/installer.rb:136:in `install!'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/lib/cocoapods/command/update.rb:97:in `run'
+/Library/Ruby/Gems/2.3.0/gems/claide-1.0.2/lib/claide/command.rb:334:in `run'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/lib/cocoapods/command.rb:52:in `run'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/bin/pod:55:in `<top (required)>'
+/usr/local/bin/pod:22:in `load'
+/usr/local/bin/pod:22:in `<main>'
+```
+
+――― TEMPLATE END ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+
+[!] Oh no, an error occurred.
+
+Search for existing GitHub issues similar to yours:
+https://github.com/CocoaPods/CocoaPods/search?q=Illformed+requirement+%60%22-%3E3.2.1%22%60&type=Issues
+
+If none exists, create a ticket, with the template displayed above, on:
+https://github.com/CocoaPods/CocoaPods/issues/new
+
+Be sure to first read the contributing guide for details on how to properly submit a ticket:
+https://github.com/CocoaPods/CocoaPods/blob/master/CONTRIBUTING.md
+
+Don't forget to anonymize any private data!
+
+Looking for related issues on cocoapods/cocoapods...
+ - ArgumentError - Illformed requirement `"~>pod 3.0.4"`
+   https://github.com/CocoaPods/CocoaPods/issues/4938 [closed] [1 comment]
+   24 Feb 2016
+
+ - ArgumentError - Illformed requirement `" UI = 0.1.0"`
+   https://github.com/CocoaPods/CocoaPods/issues/2898 [closed] [18 comments]
+   02 Dec 2015
+
+
+~/skhu/2019/AngelHack/SharingService
+❯ cat Podfile
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'SharingService' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for SharingService
+  pod 'NMapsMap', '->3.2.1'
+
+end
+
+~/skhu/2019/AngelHack/SharingService
+❯ vim Podfile
+
+~/skhu/2019/AngelHack/SharingService
+❯ pod cache clean NMapsMap
+
+[!] No cache for pod named NMapsMap found
+
+~/skhu/2019/AngelHack/SharingService
+❯ pod update NMapsMap
+
+――― MARKDOWN TEMPLATE ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+
+### Command
+
+```
+/usr/local/bin/pod update NMapsMap
+```
+
+### Report
+
+* What did you do?
+
+* What did you expect to happen?
+
+* What happened instead?
+
+
+### Stack
+
+```
+   CocoaPods : 1.6.1
+        Ruby : ruby 2.3.7p456 (2018-03-28 revision 63024) [universal.x86_64-darwin18]
+    RubyGems : 2.5.2.3
+        Host : Mac OS X 10.14.4 (18E226)
+       Xcode : 10.2.1 (10E1001)
+         Git : git version 2.18.0
+Ruby lib dir : /System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib
+Repositories : master - https://github.com/CocoaPods/Specs.git @ bbc620fa1db434e96b546053abc4cd9a155ca99e
+```
+
+### Plugins
+
+```
+cocoapods-deintegrate : 1.0.4
+cocoapods-plugins     : 1.0.0
+cocoapods-search      : 1.0.0
+cocoapods-stats       : 1.1.0
+cocoapods-trunk       : 1.3.1
+cocoapods-try         : 1.1.0
+```
+
+### Podfile
+
+```ruby
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'SharingService' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for SharingService
+  pod 'NMapsMap', '-> 3.2.1'
+
+end
+```
+
+### Error
+
+```
+ArgumentError - Illformed requirement `"-> 3.2.1"`
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/requirement.rb:63:in `parse'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/requirement.rb:88:in `block in initialize'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/requirement.rb:88:in `map!'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/requirement.rb:88:in `initialize'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/requirement.rb:34:in `new'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/requirement.rb:34:in `create'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/dependency.rb:115:in `initialize'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/podfile/target_definition.rb:899:in `new'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/podfile/target_definition.rb:899:in `block in pod_dependencies'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/podfile/target_definition.rb:895:in `map'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/podfile/target_definition.rb:895:in `pod_dependencies'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/podfile/target_definition.rb:96:in `non_inherited_dependencies'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-core-1.6.1/lib/cocoapods-core/podfile/target_definition.rb:74:in `dependencies'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/lib/cocoapods/installer/analyzer/podfile_dependency_cache.rb:43:in `block in from_podfile'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/lib/cocoapods/installer/analyzer/podfile_dependency_cache.rb:42:in `each'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/lib/cocoapods/installer/analyzer/podfile_dependency_cache.rb:42:in `from_podfile'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/lib/cocoapods/installer/analyzer.rb:76:in `initialize'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/lib/cocoapods/installer.rb:272:in `new'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/lib/cocoapods/installer.rb:272:in `create_analyzer'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/lib/cocoapods/installer.rb:167:in `resolve_dependencies'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/lib/cocoapods/installer.rb:136:in `install!'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/lib/cocoapods/command/update.rb:97:in `run'
+/Library/Ruby/Gems/2.3.0/gems/claide-1.0.2/lib/claide/command.rb:334:in `run'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/lib/cocoapods/command.rb:52:in `run'
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.6.1/bin/pod:55:in `<top (required)>'
+/usr/local/bin/pod:22:in `load'
+/usr/local/bin/pod:22:in `<main>'
+```
+
+――― TEMPLATE END ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+
+[!] Oh no, an error occurred.
+
+Search for existing GitHub issues similar to yours:
+https://github.com/CocoaPods/CocoaPods/search?q=Illformed+requirement+%60%22-%3E+3.2.1%22%60&type=Issues
+
+If none exists, create a ticket, with the template displayed above, on:
+https://github.com/CocoaPods/CocoaPods/issues/new
+
+Be sure to first read the contributing guide for details on how to properly submit a ticket:
+https://github.com/CocoaPods/CocoaPods/blob/master/CONTRIBUTING.md
+
+Don't forget to anonymize any private data!
+
+Looking for related issues on cocoapods/cocoapods...
+ - ArgumentError - Illformed requirement `"~>pod 3.0.4"`
+   https://github.com/CocoaPods/CocoaPods/issues/4938 [closed] [1 comment]
+   24 Feb 2016
+
+ - ArgumentError - Illformed requirement `" UI = 0.1.0"`
+   https://github.com/CocoaPods/CocoaPods/issues/2898 [closed] [18 comments]
+   02 Dec 2015
+
+
+~/skhu/2019/AngelHack/SharingService
+❯ pod -v
+[!] Unknown command: `-v`
+Did you mean: env?
+
+Usage:
+
+    $ pod COMMAND
+
+      CocoaPods, the Cocoa library package manager.
+
+Commands:
+
+    + cache         Manipulate the CocoaPods cache
+    + deintegrate   Deintegrate CocoaPods from your project
+    + env           Display pod environment
+    + init          Generate a Podfile for the current directory
+    + install       Install project dependencies according to versions from a
+                    Podfile.lock
+    + ipc           Inter-process communication
+    + lib           Develop pods
+    + list          List pods
+    + outdated      Show outdated project dependencies
+    + plugins       Show available CocoaPods plugins
+    + repo          Manage spec-repositories
+    + search        Search for pods
+    + setup         Setup the CocoaPods environment
+    + spec          Manage pod specs
+    + trunk         Interact with the CocoaPods API (e.g. publishing new specs)
+    + try           Try a Pod!
+    + update        Update outdated project dependencies and create new
+                    Podfile.lock
+
+Options:
+
+    --silent        Show nothing
+    --version       Show the version of the tool
+    --verbose       Show more debugging information
+    --no-ansi       Show output without ANSI codes
+    --help          Show help banner of specified command
+
+~/skhu/2019/AngelHack/SharingService
+❯ pod --version
+1.6.1
+
+~/skhu/2019/AngelHack/SharingService
+❯ vim Podfile
+
+~/skhu/2019/AngelHack/SharingService 7s
+❯ pod cache clean NMapsMap
+
+[!] No cache for pod named NMapsMap found
+
+~/skhu/2019/AngelHack/SharingService
+❯ pod update NMapsMap
+Updating local specs repositories
+  $ /usr/local/bin/git -C /Users/lim/.cocoapods/repos/master fetch origin
+  --progress
+  remote: Enumerating objects: 28, done.
+  remote: Counting objects: 100% (28/28), done.
+  remote: Compressing objects: 100% (9/9), done.
+  remote: Total 18 (delta 12), reused 14 (delta 8), pack-reused 0
+  From https://github.com/CocoaPods/Specs
+     bbc620fa1db..4cd07c0c37b  master     -> origin/master
+  $ /usr/local/bin/git -C /Users/lim/.cocoapods/repos/master rev-parse
+  --abbrev-ref HEAD
+  master
+  $ /usr/local/bin/git -C /Users/lim/.cocoapods/repos/master reset --hard
+  origin/master
+  HEAD is now at 4cd07c0c37b [Add] DWReader 0.0.0.15
+
+CocoaPods 1.7.1 is available.
+To update use: `sudo gem install cocoapods`
+
+For more information, see https://blog.cocoapods.org and the CHANGELOG for this version at https://github.com/CocoaPods/CocoaPods/releases/tag/1.7.1
+
+Analyzing dependencies
+Downloading dependencies
+Installing NMapsMap 3.2.1 (was 3.3.0)
+Generating Pods project
+Integrating client project
+Sending stats
+Pod installation complete! There is 1 dependency from the Podfile and 1 total pod installed.
+
+[!] Automatically assigning platform `ios` with version `12.2` on target `SharingService` because no platform was specified. Please specify a platform for this target in your Podfile. See `https://guides.cocoapods.org/syntax/podfile.html#platform`.
+
+~/skhu/2019/AngelHack/SharingService 46s
+❯ git init
+Initialized empty Git repository in /Users/lim/skhu/2019/AngelHack/SharingService/.git/
+
+~/skhu/2019/AngelHack/SharingService master*
+❯ git remote add origin https://github.com/angelhack-seoul-2019/SanitaryPadSharingService-iOS.git
+
+~/skhu/2019/AngelHack/SharingService master*
+❯ git add .
+g
+~/skhu/2019/AngelHack/SharingService master*
+❯ git commit -m "Show Naver Map View"
+[master (root-commit) ac71312] Show Naver Map View
+ 110 files changed, 8249 insertions(+)
+ create mode 100644 Podfile
+ create mode 100644 Podfile.lock
+ create mode 100644 Pods/Manifest.lock
+ create mode 100644 Pods/NMapsMap/LICENSE
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Assets.car
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Base.lproj/Foundation.strings
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFArrowheadPath.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFAuthManager.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFCameraCommon.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFCameraPosition.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFCameraUpdate.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFCameraUpdateParams.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFCircleOverlay.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFCompassView.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFFoundation.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFGeometry.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFGroundOverlay.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFIndoorLevel.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFIndoorRegion.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFIndoorSelection.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFIndoorView.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFIndoorZone.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFInfoWindow.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFInfoWindowDefaultTextSource.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFLocationManager.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFLocationOverlay.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFMapScaleView.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFMapView+IBAdditions.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFMapView.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFMapViewDelegate.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFMarker.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFMarkerConstants.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFMultipartPath.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFNaverMapView.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFOfflinePack.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFOfflineRegion.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFOfflineStorage.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFOverlay.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFOverlayImage.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFPath.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFPathColor.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFPickable.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFPolygonOverlay.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFPolylineOverlay.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFProjection.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFSymbol.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMFTypes.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMGBounds.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMGConstants.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMGGeometry.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMGLatLng.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMGLatLngBounds.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMGLineString.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMGMultiPolygon.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMGPoint.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMGPolygon.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMGSegment.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMGTm128.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMGUtils.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMGUtmk.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMGWebMercatorCoord.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMapsGeometry.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NMapsMap.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Headers/NSBundle+NMFAdditions.h
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Info.plist
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/LICENSE
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/Modules/module.modulemap
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/NMFInfoWindowDefaultTextSource.nib
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/NMFNaverMapView.nib/objects-11.0+.nib
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/NMFNaverMapView.nib/runtime.nib
+ create mode 100755 Pods/NMapsMap/framework/NMapsMap.framework/NMapsMap
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/NOTICE.md
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/en.lproj/Foundation.strings
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/en.lproj/Localizable.strings
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/ja.lproj/Foundation.strings
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/ja.lproj/Localizable.strings
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/ko.lproj/Foundation.strings
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/ko.lproj/Foundation.stringsdict
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/ko.lproj/Localizable.strings
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/zh-Hans.lproj/Foundation.strings
+ create mode 100644 Pods/NMapsMap/framework/NMapsMap.framework/zh-Hans.lproj/Localizable.strings
+ create mode 100644 Pods/Pods.xcodeproj/project.pbxproj
+ create mode 100644 Pods/Pods.xcodeproj/xcuserdata/lim.xcuserdatad/xcschemes/NMapsMap.xcscheme
+ create mode 100644 Pods/Pods.xcodeproj/xcuserdata/lim.xcuserdatad/xcschemes/Pods-SharingService.xcscheme
+ create mode 100644 Pods/Pods.xcodeproj/xcuserdata/lim.xcuserdatad/xcschemes/xcschememanagement.plist
+ create mode 100644 Pods/Target Support Files/NMapsMap/NMapsMap.xcconfig
+ create mode 100644 Pods/Target Support Files/Pods-SharingService/Pods-SharingService-Info.plist
+ create mode 100644 Pods/Target Support Files/Pods-SharingService/Pods-SharingService-acknowledgements.markdown
+ create mode 100644 Pods/Target Support Files/Pods-SharingService/Pods-SharingService-acknowledgements.plist
+ create mode 100644 Pods/Target Support Files/Pods-SharingService/Pods-SharingService-dummy.m
+ create mode 100755 Pods/Target Support Files/Pods-SharingService/Pods-SharingService-frameworks.sh
+ create mode 100644 Pods/Target Support Files/Pods-SharingService/Pods-SharingService-umbrella.h
+ create mode 100644 Pods/Target Support Files/Pods-SharingService/Pods-SharingService.debug.xcconfig
+ create mode 100644 Pods/Target Support Files/Pods-SharingService/Pods-SharingService.modulemap
+ create mode 100644 Pods/Target Support Files/Pods-SharingService/Pods-SharingService.release.xcconfig
+ create mode 100644 SharingService.xcodeproj/project.pbxproj
+ create mode 100644 SharingService.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+ create mode 100644 SharingService.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+ create mode 100644 SharingService.xcodeproj/project.xcworkspace/xcuserdata/lim.xcuserdatad/UserInterfaceState.xcuserstate
+ create mode 100644 SharingService.xcodeproj/xcuserdata/lim.xcuserdatad/xcschemes/xcschememanagement.plist
+ create mode 100644 SharingService.xcworkspace/contents.xcworkspacedata
+ create mode 100644 SharingService.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+ create mode 100644 SharingService.xcworkspace/xcuserdata/lim.xcuserdatad/UserInterfaceState.xcuserstate
+ create mode 100644 SharingService/AppDelegate.swift
+ create mode 100644 SharingService/Assets.xcassets/AppIcon.appiconset/Contents.json
+ create mode 100644 SharingService/Assets.xcassets/Contents.json
+ create mode 100644 SharingService/Base.lproj/LaunchScreen.storyboard
+ create mode 100644 SharingService/Base.lproj/Main.storyboard
+ create mode 100644 SharingService/Info.plist
+ create mode 100644 SharingService/ViewController.swift
+
+~/skhu/2019/AngelHack/SharingService master
+❯ git push origin master
+Enumerating objects: 142, done.
+Counting objects: 100% (142/142), done.
+Delta compression using up to 12 threads.
+Compressing objects: 100% (131/131), done.
+Writing objects: 100% (142/142), 10.80 MiB | 2.90 MiB/s, done.
+Total 142 (delta 14), reused 0 (delta 0)
+remote: Resolving deltas: 100% (14/14), done.
+To https://github.com/angelhack-seoul-2019/SanitaryPadSharingService-iOS.git
+ * [new branch]      master -> master
+
+~/skhu/2019/AngelHack/SharingService master 9s
+❯ git checkout suhyun
+error: pathspec 'suhyun' did not match any file(s) known to git.
+
+~/skhu/2019/AngelHack/SharingService master
+❯ git checkout -b suhyun
+Switched to a new branch 'suhyun'
+
+~/skhu/2019/AngelHack/SharingService suhyun
+❯ git status
+On branch suhyun
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   SharingService.xcworkspace/xcuserdata/lim.xcuserdatad/UserInterfaceState.xcuserstate
+	modified:   SharingService/Info.plist
+	modified:   SharingService/ViewController.swift
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+~/skhu/2019/AngelHack/SharingService suhyun*
+❯ git add .
+
+~/skhu/2019/AngelHack/SharingService suhyun*
+❯ git status
+On branch suhyun
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   SharingService.xcworkspace/xcuserdata/lim.xcuserdatad/UserInterfaceState.xcuserstate
+	modified:   SharingService/Info.plist
+	modified:   SharingService/ViewController.swift
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   SharingService.xcworkspace/xcuserdata/lim.xcuserdatad/UserInterfaceState.xcuserstate
+	modified:   SharingService/ViewController.swift
+
+
+~/skhu/2019/AngelHack/SharingService suhyun*
+❯ git add .
+
+~/skhu/2019/AngelHack/SharingService suhyun*
+❯ git commit -m "Get User Current Location (GPS)"
+[suhyun 703268b] Get User Current Location (GPS)
+ 1 .gitignore                                                        Buffers
+ 21
+ 20 iOSInjectionProject/
+ 19
+ 18 ### Xcode ###
+ 17 # Xcode
+ 16 # gitignore contributors: remember to update Global/Xcode.gitignore, Object↷
+ 15
+ 14 ## User settings
+ 13
+ 12 ## compatibility with Xcode 8 and earlier (ignoring not required starting X↷
+ 11
+ 10 ## compatibility with Xcode 3 and earlier (ignoring not required starting X↷
+  9
+  8 ### Xcode Patch ###
+  7 *.xcodeproj/*
+  6 !*.xcodeproj/project.pbxproj
+  5 !*.xcodeproj/xcshareddata/
+  4 !*.xcworkspace/contents.xcworkspacedata
+  3 /*.gcno
+  2 **/xcshareddata/WorkspaceSettings.xcsettings
+  1
+86  # End of https://www.gitignore.io/api/swift,xco
+ ❶  * .gitignore  ❖ ⓢ                               | utf-8  86:48  Bot
+Already at oldest change
