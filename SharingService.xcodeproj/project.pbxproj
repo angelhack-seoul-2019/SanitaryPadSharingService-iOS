@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		068571D922A2E50700A7C664 /* OrgScheduleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068571D822A2E50700A7C664 /* OrgScheduleService.swift */; };
+		068571DB22A2E77900A7C664 /* OrgScheduleResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068571DA22A2E77900A7C664 /* OrgScheduleResult.swift */; };
 		3AAF774922A29F0100F0487B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF774822A29F0100F0487B /* AppDelegate.swift */; };
 		3AAF774B22A29F0100F0487B /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF774A22A29F0100F0487B /* MapVC.swift */; };
 		3AAF774E22A29F0100F0487B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AAF774C22A29F0100F0487B /* Main.storyboard */; };
@@ -15,10 +17,14 @@
 		3AAF776022A2C25A00F0487B /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF775F22A2C25A00F0487B /* APIConstants.swift */; };
 		3AAF776222A2C6B300F0487B /* OrgListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF776122A2C6B300F0487B /* OrgListService.swift */; };
 		3AAF776422A2D2FE00F0487B /* OrgListResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF776322A2D2FE00F0487B /* OrgListResult.swift */; };
+		3AAF776722A2EC8500F0487B /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF776622A2EC8500F0487B /* DetailView.swift */; };
+		3AAF776922A2EC8F00F0487B /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AAF776822A2EC8F00F0487B /* DetailView.xib */; };
 		C47354EC1239E98F49A27667 /* Pods_SharingService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A59C6AE7658F0BCBA966ED3 /* Pods_SharingService.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		068571D822A2E50700A7C664 /* OrgScheduleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgScheduleService.swift; sourceTree = "<group>"; };
+		068571DA22A2E77900A7C664 /* OrgScheduleResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgScheduleResult.swift; sourceTree = "<group>"; };
 		1A59C6AE7658F0BCBA966ED3 /* Pods_SharingService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharingService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AAF774522A29F0100F0487B /* SharingService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharingService.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AAF774822A29F0100F0487B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +36,8 @@
 		3AAF775F22A2C25A00F0487B /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		3AAF776122A2C6B300F0487B /* OrgListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgListService.swift; sourceTree = "<group>"; };
 		3AAF776322A2D2FE00F0487B /* OrgListResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgListResult.swift; sourceTree = "<group>"; };
+		3AAF776622A2EC8500F0487B /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		3AAF776822A2EC8F00F0487B /* DetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
 		72676E140A2532481EE466F4 /* Pods-SharingService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharingService.debug.xcconfig"; path = "Target Support Files/Pods-SharingService/Pods-SharingService.debug.xcconfig"; sourceTree = "<group>"; };
 		74B9D7C6D9C391B3F2E1DCF3 /* Pods-SharingService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharingService.release.xcconfig"; path = "Target Support Files/Pods-SharingService/Pods-SharingService.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,6 +82,7 @@
 				3AAF775C22A2B79E00F0487B /* APIServices */,
 				3AAF775D22A2B7AB00F0487B /* Models */,
 				3AAF775E22A2B7B800F0487B /* Controllers */,
+				3AAF776522A2EBF900F0487B /* View */,
 			);
 			path = SharingService;
 			sourceTree = "<group>";
@@ -99,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				3AAF776122A2C6B300F0487B /* OrgListService.swift */,
+				068571D822A2E50700A7C664 /* OrgScheduleService.swift */,
 			);
 			path = APIServices;
 			sourceTree = "<group>";
@@ -108,6 +118,7 @@
 			children = (
 				3AAF775F22A2C25A00F0487B /* APIConstants.swift */,
 				3AAF776322A2D2FE00F0487B /* OrgListResult.swift */,
+				068571DA22A2E77900A7C664 /* OrgScheduleResult.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -118,6 +129,15 @@
 				3AAF774A22A29F0100F0487B /* MapVC.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		3AAF776522A2EBF900F0487B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3AAF776622A2EC8500F0487B /* DetailView.swift */,
+				3AAF776822A2EC8F00F0487B /* DetailView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		5913D32E4B1B589F5D89544D /* Pods */ = {
@@ -198,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AAF775322A29F0100F0487B /* LaunchScreen.storyboard in Resources */,
+				3AAF776922A2EC8F00F0487B /* DetailView.xib in Resources */,
 				3AAF775022A29F0100F0487B /* Assets.xcassets in Resources */,
 				3AAF774E22A29F0100F0487B /* Main.storyboard in Resources */,
 			);
@@ -260,8 +281,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AAF776222A2C6B300F0487B /* OrgListService.swift in Sources */,
+				3AAF776722A2EC8500F0487B /* DetailView.swift in Sources */,
+				068571DB22A2E77900A7C664 /* OrgScheduleResult.swift in Sources */,
 				3AAF774B22A29F0100F0487B /* MapVC.swift in Sources */,
 				3AAF774922A29F0100F0487B /* AppDelegate.swift in Sources */,
+				068571D922A2E50700A7C664 /* OrgScheduleService.swift in Sources */,
 				3AAF776422A2D2FE00F0487B /* OrgListResult.swift in Sources */,
 				3AAF776022A2C25A00F0487B /* APIConstants.swift in Sources */,
 			);
