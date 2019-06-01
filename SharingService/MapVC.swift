@@ -20,7 +20,7 @@ class MapVC: UIViewController {
     var dateInt: Int = 0
     var reloadData = true
     var orgDatas: [OrgDatas] = []
-    var selectedMarker = NMFMarker()
+    var selectedMarker: NMFMarker?
     
     @IBOutlet weak var goodButton: UIButton!
     @IBOutlet weak var supportButton: UIButton!
@@ -98,7 +98,9 @@ extension MapVC: CLLocationManagerDelegate {
                         marker.iconImage = NMFOverlayImage(name: "unselected")
                         
                         marker.touchHandler = { (marker) -> Bool in
-                            self.selectedMarker.iconImage = NMFOverlayImage(name: "unselected")
+                            if let selected = self.selectedMarker {
+                                selected.iconImage = NMFOverlayImage(name: "unselected")
+                            }
                             (marker as! NMFMarker).iconImage = NMFOverlayImage(name: "selected")
                             self.selectedMarker = (marker as! NMFMarker)
                             self.detailView.isHidden = false
@@ -133,21 +135,27 @@ extension MapVC: NMFMapViewDelegate {
     // 카메라 위치 갱신
     func updateCamera(_ latitude:CLLocationDegrees , _ longitude: CLLocationDegrees) {
         let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: latitude, lng: longitude), zoomTo: 13.0)
+        cameraUpdate.animation = .easeOut
         mapView.moveCamera(cameraUpdate)
     }
     func updateCamera(_ latitude:CLLocationDegrees , _ longitude: CLLocationDegrees, _ zoom: Double){
         let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: latitude, lng: longitude), zoomTo: zoom)
+        cameraUpdate.animation = .easeOut
         mapView.moveCamera(cameraUpdate)
     }
     
     // 지도 탭
     func didTapMapView(_ point: CGPoint, latLng latlng: NMGLatLng) {
         print("지도 탭 \(latlng.lat),\(latlng.lng)")
-        self.detailView.isHidden = true
-        updateCamera(curLocationMarker.position.lat, curLocationMarker.position.lng)
-        selectedMarker.iconImage = NMFOverlayImage(name: "unselected")
+        if let selected = selectedMarker {
+            updateCamera(curLocationMarker.position.lat, curLocationMarker.position.lng)
+            selected.iconImage = NMFOverlayImage(name: "unselected")
+            
+            selectedMarker = nil
+        }
+        self.detailView.isHidden = true        
     }
-
+    
 }
 
 extension MapVC {
