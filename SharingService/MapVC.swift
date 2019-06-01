@@ -22,6 +22,15 @@ class MapVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNaverMapDelegate()
+        
+        OrgScheduleService.shared.getSchedule(1, 20190602){
+            data in
+            //data 배열은 해당마커를 클릭했을때 나오는 일정들
+            for schedule in data {
+                
+            }
+            return
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		068571D922A2E50700A7C664 /* OrgScheduleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068571D822A2E50700A7C664 /* OrgScheduleService.swift */; };
+		068571DB22A2E77900A7C664 /* OrgScheduleResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068571DA22A2E77900A7C664 /* OrgScheduleResult.swift */; };
 		3AAF774922A29F0100F0487B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF774822A29F0100F0487B /* AppDelegate.swift */; };
 		3AAF774B22A29F0100F0487B /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF774A22A29F0100F0487B /* MapVC.swift */; };
 		3AAF774E22A29F0100F0487B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AAF774C22A29F0100F0487B /* Main.storyboard */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		068571D822A2E50700A7C664 /* OrgScheduleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgScheduleService.swift; sourceTree = "<group>"; };
+		068571DA22A2E77900A7C664 /* OrgScheduleResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgScheduleResult.swift; sourceTree = "<group>"; };
 		1A59C6AE7658F0BCBA966ED3 /* Pods_SharingService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharingService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AAF774522A29F0100F0487B /* SharingService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharingService.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AAF774822A29F0100F0487B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				3AAF776122A2C6B300F0487B /* OrgListService.swift */,
+				068571D822A2E50700A7C664 /* OrgScheduleService.swift */,
 			);
 			path = APIServices;
 			sourceTree = "<group>";
@@ -108,6 +113,7 @@
 			children = (
 				3AAF775F22A2C25A00F0487B /* APIConstants.swift */,
 				3AAF776322A2D2FE00F0487B /* OrgListResult.swift */,
+				068571DA22A2E77900A7C664 /* OrgScheduleResult.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -260,8 +266,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AAF776222A2C6B300F0487B /* OrgListService.swift in Sources */,
+				068571DB22A2E77900A7C664 /* OrgScheduleResult.swift in Sources */,
 				3AAF774B22A29F0100F0487B /* MapVC.swift in Sources */,
 				3AAF774922A29F0100F0487B /* AppDelegate.swift in Sources */,
+				068571D922A2E50700A7C664 /* OrgScheduleService.swift in Sources */,
 				3AAF776422A2D2FE00F0487B /* OrgListResult.swift in Sources */,
 				3AAF776022A2C25A00F0487B /* APIConstants.swift in Sources */,
 			);

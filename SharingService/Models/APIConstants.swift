@@ -11,6 +11,7 @@ import Foundation
 struct APIConstants {
     static let BaseURL = "http://13.59.243.151/api"
     static let OrgURL = BaseURL + "/organization/around"
+    static let OrgScheduleURL = BaseURL + "/organization/schedule"
     static let AuthURL = BaseURL + "/auth"
     static let LoginURL = AuthURL + "/signin"
     static let WebtoonURL = BaseURL + "/webtoons"
