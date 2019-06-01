@@ -15,6 +15,9 @@ class MapVC: UIViewController {
     let locationManager = CLLocationManager()
     let marker = NMFMarker()
     
+    @IBOutlet weak var goodButton: UIButton!
+    @IBOutlet weak var supportButton: UIButton!
+    
     // MARK: - outlet
     @IBOutlet weak var mapView: NMFMapView!
     
@@ -36,6 +39,19 @@ class MapVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         updateLocation()
     }
+    @IBAction func goodsBtnClick(_ sender: UIButton) {
+        
+        goodButton.setBackgroundImage(UIImage(named: "redGoods"), for: .selected)
+        supportButton.setBackgroundImage(UIImage(named: "whiteSupport"), for: .selected)
+        print("goods")
+    }
+    @IBAction func supportBtnClick(_ sender: UIButton) {
+        
+        goodButton.setBackgroundImage (UIImage(named: "whiteGoods"), for: .selected)
+        supportButton.setBackgroundImage(UIImage(named: "redSupport"), for: .selected)
+    }
+    
+    
 }
 
 // MARK: - CLLocationManagerDelegate

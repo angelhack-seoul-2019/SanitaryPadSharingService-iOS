@@ -20,7 +20,57 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5js-qB-vI4" customClass="NMFMapView">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X0x-23-oEk">
+                                        <rect key="frame" x="211" y="662" width="186" height="71"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="71" id="O8P-WP-W7Z"/>
+                                            <constraint firstAttribute="width" constant="186" id="vug-ab-r2B"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="whiteSupport"/>
+                                        <connections>
+                                            <action selector="supportBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qP4-yE-xY0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dV8-YH-tDA">
+                                        <rect key="frame" x="25.5" y="662" width="186" height="71"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="71" id="9yi-uo-cvu"/>
+                                            <constraint firstAttribute="width" constant="186" id="ZwB-hY-VJO"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="redGoods"/>
+                                        <connections>
+                                            <action selector="goodsBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X0g-0y-bAc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIe-g7-smh">
+                                        <rect key="frame" x="346" y="593" width="51" height="51"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="51" id="Cyd-cm-pIu"/>
+                                            <constraint firstAttribute="height" constant="51" id="kfX-0E-cEC"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="gps"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nS9-yj-8Fb">
+                                        <rect key="frame" x="346" y="514" width="51" height="51"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="51" id="NAP-5n-6CQ"/>
+                                            <constraint firstAttribute="width" constant="51" id="rGC-dc-uoR"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="refresh"/>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="dV8-YH-tDA" secondAttribute="bottom" constant="41" id="Gpx-eV-j8c"/>
+                                    <constraint firstItem="dV8-YH-tDA" firstAttribute="leading" secondItem="5js-qB-vI4" secondAttribute="leading" constant="25.300000000000001" id="KoV-RF-tAy"/>
+                                    <constraint firstAttribute="bottom" secondItem="X0x-23-oEk" secondAttribute="bottom" constant="41" id="OSG-PW-DhL"/>
+                                    <constraint firstAttribute="trailing" secondItem="dIe-g7-smh" secondAttribute="trailing" constant="17" id="PEN-ac-4KK"/>
+                                    <constraint firstItem="X0x-23-oEk" firstAttribute="top" secondItem="dIe-g7-smh" secondAttribute="bottom" constant="18" id="Ube-49-erq"/>
+                                    <constraint firstAttribute="trailing" secondItem="nS9-yj-8Fb" secondAttribute="trailing" constant="17" id="iZE-fS-pe4"/>
+                                    <constraint firstAttribute="trailing" secondItem="X0x-23-oEk" secondAttribute="trailing" constant="17" id="uWh-41-E2F"/>
+                                    <constraint firstItem="dIe-g7-smh" firstAttribute="top" secondItem="nS9-yj-8Fb" secondAttribute="bottom" constant="28" id="yg9-cC-Yhy"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -33,7 +83,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="goodButton" destination="dV8-YH-tDA" id="cxS-Ym-wlx"/>
                         <outlet property="mapView" destination="5js-qB-vI4" id="KUl-Uh-i2N"/>
+                        <outlet property="supportButton" destination="X0x-23-oEk" id="xuJ-1O-hnA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -95,4 +147,10 @@
             <point key="canvasLocation" x="-586.95652173913049" y="-459.375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="gps" width="31.5" height="31.5"/>
+        <image name="redGoods" width="97" height="39.5"/>
+        <image name="refresh" width="31.5" height="31.5"/>
+        <image name="whiteSupport" width="95" height="37.5"/>
+    </resources>
 </document>
