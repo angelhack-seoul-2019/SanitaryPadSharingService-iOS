@@ -19,8 +19,9 @@ class MapVC: UIViewController {
     var detailView = DetailView.instanceFromNib()
     var dateInt: Int = 0
     var reloadData = true
-    var orgDatas: [OrgDatas] = []
+    var shownMarkers = [NMFMarker]()
     var selectedMarker: NMFMarker?
+    var buttonType: Int = 0
     
     @IBOutlet weak var goodButton: UIButton!
     @IBOutlet weak var supportButton: UIButton!
@@ -39,26 +40,30 @@ class MapVC: UIViewController {
         setDetailView()
         detailView.isHidden = true
         curLocationMarker.iconImage = NMFOverlayImage(name: "location")
-        
-       
     }
     
     override func viewDidAppear(_ animated: Bool) {
         updateLocation()
     }
     @IBAction func goodsBtnClick(_ sender: UIButton) {
-        
-        goodButton.setBackgroundImage(UIImage(named: "redGoods"), for: .normal)
-        supportButton.setBackgroundImage(UIImage(named: "whiteSupport"), for: .normal)
-        
+        if(buttonType != 0){
+            buttonType = 0
+            reloadMarkers(coor: locationManager.location!.coordinate)
+            goodButton.setBackgroundImage(UIImage(named: "redGoods"), for: .normal)
+            supportButton.setBackgroundImage(UIImage(named: "whiteSupport"), for: .normal)
+        }
     }
     @IBAction func supportBtnClick(_ sender: UIButton) {
-        
-        goodButton.setBackgroundImage (UIImage(named: "whiteGoods"), for: .normal)
-        supportButton.setBackgroundImage(UIImage(named: "redSupport"), for: .normal)
+        if(buttonType != 1){
+            buttonType = 1
+            reloadMarkers(coor: locationManager.location!.coordinate)
+            goodButton.setBackgroundImage (UIImage(named: "whiteGoods"), for: .normal)
+            supportButton.setBackgroundImage(UIImage(named: "redSupport"), for: .normal)
+        }
     }
+    
     @IBAction func gpsBtnClick(_ sender: Any) {
-        
+        reloadData = true
     }
     
 }
@@ -83,45 +88,113 @@ extension MapVC: CLLocationManagerDelegate {
             
             if reloadData {
                 reloadData = false
-                updateCamera(coor.latitude, coor.longitude)
-                OrgListService.shared.getList(coor.latitude, coor.longitude, 0) {
-                    data in
-                    self.orgDatas = data
-                    
-                    for i in 0..<data.count {
-                        let marker = NMFMarker()
-                        marker.position = NMGLatLng(lat: data[i].lat, lng: data[i].lon)
-                        marker.mapView = self.mapView
-                        marker.iconImage = NMFOverlayImage(name: "unselected")
-                        
-                        marker.touchHandler = { (marker) -> Bool in
-                            if let selected = self.selectedMarker {
-                                selected.iconImage = NMFOverlayImage(name: "unselected")
-                            }
-                            (marker as! NMFMarker).iconImage = NMFOverlayImage(name: "selected")
-                            
-                            self.selectedMarker = (marker as! NMFMarker)
-                            self.detailView.isHidden = false
-                            
-                            DispatchQueue.global().sync {
-                               
-                               
-                                self.detailView.setLabels(organiId: data[i].id, dis: data[i].dist, name: data[i].name, address: data[i].address, opentime: data[i].opentime, count: data[i].curcount, type: data[i].type)
-                                
-                            }
-                            self.updateCamera(data[i].lat, data[i].lon, 16)
-                            
-                            return true
-                        }
-                    }
-                
-                }
+
+                reloadMarkers(coor: coor)
+
             }
         }
     }
     
     func locationManager(_ manager: CLLocationManager,didFailWithError error: Error) {
         //에러 발생
+    }
+    
+    func reloadMarkers(coor: CLLocationCoordinate2D){
+        updateCamera(coor.latitude, coor.longitude)
+        OrgListService.shared.getList(coor.latitude, coor.longitude, 0) {
+            data in
+            print("shownMarkers.count\(self.shownMarkers.count)")
+            for m in self.shownMarkers {
+                m.mapView = nil
+            }
+            self.shownMarkers.removeAll()
+            
+            for res in data {
+                switch self.buttonType {
+                case 0:
+                    if res.type == 0 {
+                        let marker = NMFMarker()
+                        self.shownMarkers.append(marker)
+                        marker.position = NMGLatLng(lat: res.lat, lng: res.lon)
+                        marker.mapView = self.mapView
+                        marker.iconImage = NMFOverlayImage(name: "unselected")
+                        marker.userInfo = ["tag": res.type]
+                        
+                        marker.touchHandler = { (marker) -> Bool in
+                            if let selected = self.selectedMarker {
+                                selected.iconImage = NMFOverlayImage(name: "unselected")
+                            }
+                            (marker as! NMFMarker).iconImage = NMFOverlayImage(name: "selectOrange")
+                            self.selectedMarker = (marker as! NMFMarker)
+                            self.detailView.isHidden = false
+                            DispatchQueue.global().sync {
+                                
+                                self.detailView.setLabels(organiId: res.id, dis: res.dist, name: res.name, address: res.address, opentime: res.opentime, count: res.curcount, type: res.type)
+                                
+                            }
+                            self.updateCamera(res.lat, res.lon, 16)
+                            
+                            return true
+                        }
+                    }
+                case 1:
+                    if res.type == 1 {
+                        let marker = NMFMarker()
+                        self.shownMarkers.append(marker)
+                        marker.position = NMGLatLng(lat: res.lat, lng: res.lon)
+                        marker.mapView = self.mapView
+                        marker.iconImage = NMFOverlayImage(name: "unselectBlue")
+                        marker.userInfo = ["tag": res.type]
+                        
+                        marker.touchHandler = { (marker) -> Bool in
+                            if let selected = self.selectedMarker {
+                                selected.iconImage = NMFOverlayImage(name: "unselectBlue")
+                            }
+                            (marker as! NMFMarker).iconImage = NMFOverlayImage(name: "selectBlue")
+                            self.selectedMarker = (marker as! NMFMarker)
+                            self.detailView.isHidden = false
+                            DispatchQueue.global().sync {
+                                
+                                
+                                self.detailView.setLabels(organiId: res.id, dis: res.dist, name: res.name, address: res.address, opentime: res.opentime, count: res.curcount, type: res.type)
+                                
+                            }
+                            self.updateCamera(res.lat, res.lon, 16)
+                            
+                            return true
+                        }
+                    } else if res.type == 2 {
+                        let marker = NMFMarker()
+                        self.shownMarkers.append(marker)
+                        marker.position = NMGLatLng(lat: res.lat, lng: res.lon)
+                        marker.mapView = self.mapView
+                        marker.iconImage = NMFOverlayImage(name: "unselectOrange")
+                        marker.userInfo = ["tag": res.type]
+                        
+                        marker.touchHandler = { (marker) -> Bool in
+                            if let selected = self.selectedMarker {
+                                selected.iconImage = NMFOverlayImage(name: "unselectOrange")
+                            }
+                            (marker as! NMFMarker).iconImage = NMFOverlayImage(name: "selectOrange")
+                            self.selectedMarker = (marker as! NMFMarker)
+                            self.detailView.isHidden = false
+                            DispatchQueue.global().sync {
+                                
+                                
+                                self.detailView.setLabels(organiId: res.id, dis: res.dist, name: res.name, address: res.address, opentime: res.opentime, count: res.curcount, type: res.type)
+                                
+                            }
+                            self.updateCamera(res.lat, res.lon, 16)
+                            
+                            return true
+                        }
+                    }
+                default:
+                    break
+                }
+            }
+            return
+        }
     }
 }
 
