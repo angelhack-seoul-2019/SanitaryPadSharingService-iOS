@@ -16,12 +16,13 @@ class DetailView: UIView {
     @IBOutlet weak var opentimeLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var countLabel: UILabel!
-    
+    var organiId = Int()
     class func instanceFromNib() -> DetailView {
         return UINib(nibName: "DetailView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! DetailView
     }
     
-    func setLabels(dis d:Double, name n:String, address addr:String, opentime ot:String, count c:Int, type t:Int){
+    func setLabels(organiId id:Int, dis d:Double, name n:String, address addr:String, opentime ot:String, count c:Int, type t:Int){
+        organiId = id
         let disInt = String(format: "%.2f", d)
         distanceLabel.text = "반경 \(disInt)km 이내"
         nameLabel.text = n
@@ -36,5 +37,6 @@ class DetailView: UIView {
             typeLabel.text = "일반 자판기형"
         }
     }
+    
 }
 

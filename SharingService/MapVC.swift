@@ -38,14 +38,7 @@ class MapVC: UIViewController {
         detailView.isHidden = true
         curLocationMarker.iconImage = NMFOverlayImage(name: "location")
         
-        OrgScheduleService.shared.getSchedule(1, 20190602){
-            data in
-            //data 배열은 해당마커를 클릭했을때 나오는 일정들
-            for schedule in data {
-                
-            }
-            return
-        }
+       
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -106,7 +99,10 @@ extension MapVC: CLLocationManagerDelegate {
                             (marker as! NMFMarker).iconImage = NMFOverlayImage(name: "selected")
                             self.selectedMarker = (marker as! NMFMarker)
                             self.detailView.isHidden = false
-                            self.detailView.setLabels(dis: data[i].dist, name: data[i].name, address: data[i].address, opentime: data[i].opentime, count: data[i].curcount, type: data[i].type)
+                            self.detailView.setLabels(organiId: data[i].id, dis: data[i].dist, name: data[i].name, address: data[i].address, opentime: data[i].opentime, count: data[i].curcount, type: data[i].type)
+                            
+                           
+                            
                             self.updateCamera(data[i].lat, data[i].lon, 16)
                             
                             return true
@@ -175,6 +171,24 @@ extension MapVC {
                 .isActive = true
         }
         self.view.addSubview(detailView)
+        
+        let gesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.nextAction(_: )))
+        
+        detailView.addGestureRecognizer(gesture)
+        
+    }
+    
+    @objc func nextAction(_ gesture: UITapGestureRecognizer) {
+        
+        guard let vc: ScheduleViewController = self.storyboard?.instantiateViewController(withIdentifier: "ScheduleViewController") as? ScheduleViewController else { return }
+    
+        vc.addr = detailView.addressLabel.text!
+        vc.name = detailView.nameLabel.text!
+        vc.openTime = detailView.opentimeLabel.text!
+        vc.organiId = detailView.organiId
+        
+        self.present(vc, animated: true, completion: nil)
+        
     }
     
     func putDetailInfo(data: OrgDatas){
