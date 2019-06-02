@@ -70,7 +70,9 @@ class MapVC: UIViewController {
     }
     
     @IBAction func gpsBtnClick(_ sender: Any) {
-        reloadData = true
+        if let coor = locationManager.location?.coordinate{
+            reloadMarkers(coor: coor)
+        }
     }
 }
 
