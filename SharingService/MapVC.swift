@@ -19,8 +19,9 @@ class MapVC: UIViewController {
     var detailView = DetailView.instanceFromNib()
     var dateInt: Int = 0
     var reloadData = true
-    var orgDatas: [OrgDatas] = []
+    var shownMarkers = [NMFMarker]()
     var selectedMarker: NMFMarker?
+    var buttonType: Int = 0
     
     @IBOutlet weak var goodButton: UIButton!
     @IBOutlet weak var supportButton: UIButton!
@@ -38,7 +39,7 @@ class MapVC: UIViewController {
         detailView.isHidden = true
         curLocationMarker.iconImage = NMFOverlayImage(name: "location")
         
-        OrgScheduleService.shared.getSchedule(1, 20190602){
+        OrgScheduleService.shared.getSchedule(1, dateInt){
             data in
             //data 배열은 해당마커를 클릭했을때 나오는 일정들
             for schedule in data {
@@ -52,18 +53,24 @@ class MapVC: UIViewController {
         updateLocation()
     }
     @IBAction func goodsBtnClick(_ sender: UIButton) {
-        
-        goodButton.setBackgroundImage(UIImage(named: "redGoods"), for: .normal)
-        supportButton.setBackgroundImage(UIImage(named: "whiteSupport"), for: .normal)
-        
+        if(buttonType != 0){
+            buttonType = 0
+            reloadMarkers(coor: locationManager.location!.coordinate)
+            goodButton.setBackgroundImage(UIImage(named: "redGoods"), for: .normal)
+            supportButton.setBackgroundImage(UIImage(named: "whiteSupport"), for: .normal)
+        }
     }
     @IBAction func supportBtnClick(_ sender: UIButton) {
-        
-        goodButton.setBackgroundImage (UIImage(named: "whiteGoods"), for: .normal)
-        supportButton.setBackgroundImage(UIImage(named: "redSupport"), for: .normal)
+        if(buttonType != 1){
+            buttonType = 1
+            reloadMarkers(coor: locationManager.location!.coordinate)
+            goodButton.setBackgroundImage (UIImage(named: "whiteGoods"), for: .normal)
+            supportButton.setBackgroundImage(UIImage(named: "redSupport"), for: .normal)
+        }
     }
+    
     @IBAction func gpsBtnClick(_ sender: Any) {
-        
+        reloadData = true
     }
     
 }
@@ -88,38 +95,60 @@ extension MapVC: CLLocationManagerDelegate {
             
             if reloadData {
                 reloadData = false
-                updateCamera(coor.latitude, coor.longitude)
-                OrgListService.shared.getList(coor.latitude, coor.longitude, 0) {
-                    data in
-                    self.orgDatas = data
-                    
-                    for i in 0..<data.count {
-                        let marker = NMFMarker()
-                        marker.position = NMGLatLng(lat: data[i].lat, lng: data[i].lon)
-                        marker.mapView = self.mapView
-                        marker.iconImage = NMFOverlayImage(name: "unselected")
-                        
-                        marker.touchHandler = { (marker) -> Bool in
-                            if let selected = self.selectedMarker {
-                                selected.iconImage = NMFOverlayImage(name: "unselected")
-                            }
-                            (marker as! NMFMarker).iconImage = NMFOverlayImage(name: "selected")
-                            self.selectedMarker = (marker as! NMFMarker)
-                            self.detailView.isHidden = false
-                            self.detailView.setLabels(dis: data[i].dist, name: data[i].name, address: data[i].address, opentime: data[i].opentime, count: data[i].curcount, type: data[i].type)
-                            self.updateCamera(data[i].lat, data[i].lon, 16)
-                            
-                            return true
-                        }
-                    }
-                    return
-                }
+                reloadMarkers(coor: coor)
             }
         }
     }
     
     func locationManager(_ manager: CLLocationManager,didFailWithError error: Error) {
         //에러 발생
+    }
+    
+    func reloadMarkers(coor: CLLocationCoordinate2D){
+        updateCamera(coor.latitude, coor.longitude)
+        OrgListService.shared.getList(coor.latitude, coor.longitude, 0) {
+            data in
+            print("shownMarkers.count\(self.shownMarkers.count)")
+            for m in self.shownMarkers {
+                m.mapView = nil
+            }
+            self.shownMarkers.removeAll()
+            
+            var condition = true
+            
+            for i in 0..<data.count {
+                switch self.buttonType {
+                case 0:
+                    condition = data[i].type == 0
+                case 1:
+                    condition = data[i].type == 1 || data[i].type == 2
+                default:
+                    break
+                }
+                if condition{
+                    print("name?:\(data[i].name)")
+                    let marker = NMFMarker()
+                    self.shownMarkers.append(marker)
+                    marker.position = NMGLatLng(lat: data[i].lat, lng: data[i].lon)
+                    marker.mapView = self.mapView
+                    marker.iconImage = NMFOverlayImage(name: "unselected")
+                    
+                    marker.touchHandler = { (marker) -> Bool in
+                        if let selected = self.selectedMarker {
+                            selected.iconImage = NMFOverlayImage(name: "unselected")
+                        }
+                        (marker as! NMFMarker).iconImage = NMFOverlayImage(name: "selected")
+                        self.selectedMarker = (marker as! NMFMarker)
+                        self.detailView.isHidden = false
+                        self.detailView.setLabels(dis: data[i].dist, name: data[i].name, address: data[i].address, opentime: data[i].opentime, count: data[i].curcount, type: data[i].type)
+                        self.updateCamera(data[i].lat, data[i].lon, 16)
+                        
+                        return true
+                    }
+                }
+            }
+            return
+        }
     }
 }
 
