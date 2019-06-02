@@ -2,12 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "unselectedMarker-1.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "unselectedMarker.png",
+      "filename" : "unselectBlue.png",
       "scale" : "2x"
     },
     {

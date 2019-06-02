@@ -33,7 +33,7 @@ class MapVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //기업의 이벤트 받아오는 통신
-       
+        
         setNaverMapDelegate()
         dateFormatter.dateFormat = "yyyyMMdd"
         dateInt = Int(dateFormatter.string(from: today)) ?? 0
@@ -63,9 +63,10 @@ class MapVC: UIViewController {
     }
     
     @IBAction func gpsBtnClick(_ sender: Any) {
-        reloadData = true
+        if let coor = locationManager.location?.coordinate{
+            reloadMarkers(coor: coor)
+        }
     }
-    
 }
 
 // MARK: - CLLocationManagerDelegate
@@ -88,9 +89,9 @@ extension MapVC: CLLocationManagerDelegate {
             
             if reloadData {
                 reloadData = false
-
+                
                 reloadMarkers(coor: coor)
-
+                
             }
         }
     }
@@ -127,10 +128,9 @@ extension MapVC: CLLocationManagerDelegate {
                             (marker as! NMFMarker).iconImage = NMFOverlayImage(name: "selectOrange")
                             self.selectedMarker = (marker as! NMFMarker)
                             self.detailView.isHidden = false
+                            
                             DispatchQueue.global().sync {
-                                
                                 self.detailView.setLabels(organiId: res.id, dis: res.dist, name: res.name, address: res.address, opentime: res.opentime, count: res.curcount, type: res.type)
-                                
                             }
                             self.updateCamera(res.lat, res.lon, 16)
                             
@@ -153,14 +153,12 @@ extension MapVC: CLLocationManagerDelegate {
                             (marker as! NMFMarker).iconImage = NMFOverlayImage(name: "selectBlue")
                             self.selectedMarker = (marker as! NMFMarker)
                             self.detailView.isHidden = false
+                            
                             DispatchQueue.global().sync {
-                                
-                                
                                 self.detailView.setLabels(organiId: res.id, dis: res.dist, name: res.name, address: res.address, opentime: res.opentime, count: res.curcount, type: res.type)
                                 
                             }
                             self.updateCamera(res.lat, res.lon, 16)
-                            
                             return true
                         }
                     } else if res.type == 2 {
@@ -178,11 +176,9 @@ extension MapVC: CLLocationManagerDelegate {
                             (marker as! NMFMarker).iconImage = NMFOverlayImage(name: "selectOrange")
                             self.selectedMarker = (marker as! NMFMarker)
                             self.detailView.isHidden = false
+                            
                             DispatchQueue.global().sync {
-                                
-                                
                                 self.detailView.setLabels(organiId: res.id, dis: res.dist, name: res.name, address: res.address, opentime: res.opentime, count: res.curcount, type: res.type)
-                                
                             }
                             self.updateCamera(res.lat, res.lon, 16)
                             
@@ -227,7 +223,16 @@ extension MapVC: NMFMapViewDelegate {
         print("지도 탭 \(latlng.lat),\(latlng.lng)")
         if let selected = selectedMarker {
             updateCamera(curLocationMarker.position.lat, curLocationMarker.position.lng)
-            selected.iconImage = NMFOverlayImage(name: "unselected")
+            switch selected.userInfo["tag"] as? Int {
+            case 0:
+                selected.iconImage = NMFOverlayImage(name: "unselected")
+            case 1:
+                selected.iconImage = NMFOverlayImage(name: "unselectBlue")
+            case 2:
+                selected.iconImage = NMFOverlayImage(name: "unselectOrange")
+            default:
+                break
+            }
             
             selectedMarker = nil
         }
@@ -258,16 +263,14 @@ extension MapVC {
     }
     
     @objc func nextAction(_ gesture: UITapGestureRecognizer) {
+        guard let vc: ScheduleViewController = self.storyboard?.instantiateViewController(withIdentifier: "ScheduleViewController") as? ScheduleViewController else {return}
         
-        guard let vc: ScheduleViewController = self.storyboard?.instantiateViewController(withIdentifier: "ScheduleViewController") as? ScheduleViewController else { return }
-    
         vc.addr = detailView.addressLabel.text!
         vc.name = detailView.nameLabel.text!
         vc.openTime = detailView.opentimeLabel.text!
         vc.organiId = detailView.organiId
         
         self.present(vc, animated: true, completion: nil)
-        
     }
     
     func putDetailInfo(data: OrgDatas){

@@ -43,7 +43,7 @@ class DetailView: UIView {
             typeLabel.text = "코인 자판기형"
             countLabel.text = "\(self.count)개"
         case 1:
-            typeLabel.text = "일반 자판기형"
+            typeLabel.text = "교육 지원 프로그램"
             countLabel.text = "\(self.scheduleCount)개의 일정"
         case 2:
             typeLabel.text = ""
