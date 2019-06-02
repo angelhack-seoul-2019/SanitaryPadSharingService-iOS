@@ -13,12 +13,13 @@ struct OrgDatas: Codable {
     let name: String
     let lat: Double
     let lon: Double
-    let address: String?
-    let phone: String?
+    let address: String
+    let phone: String
     let type: Int
-    let opentime: String?
-    let curcount: Int?
-    let totalcount: Int?
+    let opentime: String
+    let curcount: Int
+    let totalcount: Int
+    let dist: Double
 }
 
 struct OrgListResult: Codable {

@@ -19,8 +19,9 @@ class MapVC: UIViewController {
     var detailView = DetailView.instanceFromNib()
     var dateInt: Int = 0
     var reloadData = true
-    var orgDatas: [OrgDatas] = []
+    var shownMarkers = [NMFMarker]()
     var selectedMarker: NMFMarker?
+    var buttonType: Int = 0
     
     @IBOutlet weak var goodButton: UIButton!
     @IBOutlet weak var supportButton: UIButton!
@@ -52,13 +53,15 @@ class MapVC: UIViewController {
         updateLocation()
     }
     @IBAction func goodsBtnClick(_ sender: UIButton) {
-        
+        buttonType = 0
+        reloadMarkers(coor: locationManager.location!.coordinate)
         goodButton.setBackgroundImage(UIImage(named: "redGoods"), for: .normal)
         supportButton.setBackgroundImage(UIImage(named: "whiteSupport"), for: .normal)
         
     }
     @IBAction func supportBtnClick(_ sender: UIButton) {
-        
+        buttonType = 1
+        reloadMarkers(coor: locationManager.location!.coordinate)
         goodButton.setBackgroundImage (UIImage(named: "whiteGoods"), for: .normal)
         supportButton.setBackgroundImage(UIImage(named: "redSupport"), for: .normal)
     }
@@ -88,31 +91,7 @@ extension MapVC: CLLocationManagerDelegate {
             
             if reloadData {
                 reloadData = false
-                updateCamera(coor.latitude, coor.longitude)
-                OrgListService.shared.getList(coor.latitude, coor.longitude, 0) {
-                    data in
-                    self.orgDatas = data
-                    
-                    for i in 0..<data.count {
-                        let marker = NMFMarker()
-                        marker.position = NMGLatLng(lat: data[i].lat, lng: data[i].lon)
-                        marker.mapView = self.mapView
-                        marker.iconImage = NMFOverlayImage(name: "unselected")
-                        
-                        marker.touchHandler = { (marker) -> Bool in
-                            if let selected = self.selectedMarker {
-                                selected.iconImage = NMFOverlayImage(name: "unselected")
-                            }
-                            (marker as! NMFMarker).iconImage = NMFOverlayImage(name: "selected")
-                            self.selectedMarker = (marker as! NMFMarker)
-                            self.detailView.isHidden = false
-                            self.updateCamera(data[i].lat, data[i].lon, 16)
-                            
-                            return true
-                        }
-                    }
-                    return
-                }
+                reloadMarkers(coor: coor)
             }
         }
     }
@@ -120,6 +99,51 @@ extension MapVC: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager,didFailWithError error: Error) {
         //에러 발생
     }
+    
+    func reloadMarkers(coor: CLLocationCoordinate2D){
+        updateCamera(coor.latitude, coor.longitude)
+        OrgListService.shared.getList(coor.latitude, coor.longitude, 0) {
+            data in
+            
+            var condition = true
+            for m in self.shownMarkers {
+                m.mapView = nil
+            }
+            self.shownMarkers.removeAll()
+            
+            for i in 0..<data.count {
+                switch self.buttonType {
+                case 0:
+                    condition = data[i].type == 0
+                case 1:
+                    condition = data[i].type == 1 || data[i].type == 2
+                default:
+                    break
+                }
+                if condition{
+                    let marker = NMFMarker()
+                    self.shownMarkers.append(marker)
+                    marker.position = NMGLatLng(lat: data[i].lat, lng: data[i].lon)
+                    marker.mapView = self.mapView
+                    marker.iconImage = NMFOverlayImage(name: "unselected")
+                    
+                    marker.touchHandler = { (marker) -> Bool in
+                        if let selected = self.selectedMarker {
+                            selected.iconImage = NMFOverlayImage(name: "unselected")
+                        }
+                        (marker as! NMFMarker).iconImage = NMFOverlayImage(name: "selected")
+                        self.selectedMarker = (marker as! NMFMarker)
+                        self.detailView.isHidden = false
+                        self.updateCamera(data[i].lat, data[i].lon, 16)
+                        
+                        return true
+                    }
+                }
+            }
+            return
+        }
+    }
+    
 }
 
 // MARK: - NMFMapViewDelegate
