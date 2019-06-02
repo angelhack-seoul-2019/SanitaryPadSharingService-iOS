@@ -17,23 +17,24 @@ class DetailView: UIView {
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var countLabel: UILabel!
     
-    class func instanceFromNib() -> UIView {
-        return UINib(nibName: "DetailView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
+    class func instanceFromNib() -> DetailView {
+        return UINib(nibName: "DetailView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! DetailView
     }
     
-    func setLabels(){
-//        distanceLabel.text = "반경 \(distance)m 이내"
-//        nameLabel.text = name
-//        addressLabel.text = address
-//        opentimeLabel.text = opentime
-//        countLabel.text = "\(count)개"
-//
-//        switch type {
-//        case 0:
-//            typeLabel.text = "코인 자판기형"
-//        default:
-//            typeLabel.text = "일반 자판기형"
-//        }
+    func setLabels(dis d:Double, name n:String, address addr:String, opentime ot:String, count c:Int, type t:Int){
+        let disInt = String(format: "%.2f", d)
+        distanceLabel.text = "반경 \(disInt)km 이내"
+        nameLabel.text = n
+        addressLabel.text = addr
+        opentimeLabel.text = ot
+        countLabel.text = "\(c)개"
+
+        switch t {
+        case 0:
+            typeLabel.text = "코인 자판기형"
+        default:
+            typeLabel.text = "일반 자판기형"
+        }
     }
 }
 

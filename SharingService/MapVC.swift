@@ -106,6 +106,7 @@ extension MapVC: CLLocationManagerDelegate {
                             (marker as! NMFMarker).iconImage = NMFOverlayImage(name: "selected")
                             self.selectedMarker = (marker as! NMFMarker)
                             self.detailView.isHidden = false
+                            self.detailView.setLabels(dis: data[i].dist, name: data[i].name, address: data[i].address, opentime: data[i].opentime, count: data[i].curcount, type: data[i].type)
                             self.updateCamera(data[i].lat, data[i].lon, 16)
                             
                             return true
