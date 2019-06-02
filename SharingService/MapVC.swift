@@ -31,6 +31,8 @@ class MapVC: UIViewController {
     // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        //기업의 이벤트 받아오는 통신
+       
         setNaverMapDelegate()
         dateFormatter.dateFormat = "yyyyMMdd"
         dateInt = Int(dateFormatter.string(from: today)) ?? 0
@@ -97,18 +99,22 @@ extension MapVC: CLLocationManagerDelegate {
                                 selected.iconImage = NMFOverlayImage(name: "unselected")
                             }
                             (marker as! NMFMarker).iconImage = NMFOverlayImage(name: "selected")
+                            
                             self.selectedMarker = (marker as! NMFMarker)
                             self.detailView.isHidden = false
-                            self.detailView.setLabels(organiId: data[i].id, dis: data[i].dist, name: data[i].name, address: data[i].address, opentime: data[i].opentime, count: data[i].curcount, type: data[i].type)
                             
-                           
-                            
+                            DispatchQueue.global().sync {
+                               
+                               
+                                self.detailView.setLabels(organiId: data[i].id, dis: data[i].dist, name: data[i].name, address: data[i].address, opentime: data[i].opentime, count: data[i].curcount, type: data[i].type)
+                                
+                            }
                             self.updateCamera(data[i].lat, data[i].lon, 16)
                             
                             return true
                         }
                     }
-                    return
+                
                 }
             }
         }

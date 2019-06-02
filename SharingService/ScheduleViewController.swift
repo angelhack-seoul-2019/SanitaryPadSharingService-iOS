@@ -42,13 +42,17 @@ class ScheduleViewController: UIViewController {
             OperationQueue.main.addOperation {
                 
                 for schedule in data {
-                    self.titleLabel.text = schedule.title 
-                    self.textView.text = schedule.memo 
+                    self.titleLabel.text = schedule.title
+                    self.textView.text = schedule.memo
                     
                 }
             }
             
         }
+    }
+    @IBAction func callBtnClick(_ sender: Any) {
+        guard let number = URL(string: "tel://0234237200") else { return }
+        UIApplication.shared.open(number)
     }
     @IBAction func backBtnClick(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
