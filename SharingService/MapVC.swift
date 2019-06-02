@@ -39,7 +39,7 @@ class MapVC: UIViewController {
         detailView.isHidden = true
         curLocationMarker.iconImage = NMFOverlayImage(name: "location")
         
-        OrgScheduleService.shared.getSchedule(1, 20190602){
+        OrgScheduleService.shared.getSchedule(1, dateInt){
             data in
             //data 배열은 해당마커를 클릭했을때 나오는 일정들
             for schedule in data {
@@ -65,8 +65,9 @@ class MapVC: UIViewController {
         goodButton.setBackgroundImage (UIImage(named: "whiteGoods"), for: .normal)
         supportButton.setBackgroundImage(UIImage(named: "redSupport"), for: .normal)
     }
+    
     @IBAction func gpsBtnClick(_ sender: Any) {
-        
+        reloadData = true
     }
     
 }
