@@ -72,7 +72,6 @@ class MapVC: UIViewController {
     @IBAction func gpsBtnClick(_ sender: Any) {
         reloadData = true
     }
-    
 }
 
 // MARK: - CLLocationManagerDelegate
@@ -114,37 +113,74 @@ extension MapVC: CLLocationManagerDelegate {
             }
             self.shownMarkers.removeAll()
             
-            var condition = true
-            
-            for i in 0..<data.count {
+            for res in data {
                 switch self.buttonType {
                 case 0:
-                    condition = data[i].type == 0
+                    if res.type == 0 {
+                        let marker = NMFMarker()
+                        self.shownMarkers.append(marker)
+                        marker.position = NMGLatLng(lat: res.lat, lng: res.lon)
+                        marker.mapView = self.mapView
+                        marker.iconImage = NMFOverlayImage(name: "unselected")
+                        marker.userInfo = ["tag": res.type]
+                        
+                        marker.touchHandler = { (marker) -> Bool in
+                            if let selected = self.selectedMarker {
+                                selected.iconImage = NMFOverlayImage(name: "unselected")
+                            }
+                            (marker as! NMFMarker).iconImage = NMFOverlayImage(name: "selectOrange")
+                            self.selectedMarker = (marker as! NMFMarker)
+                            self.detailView.isHidden = false
+                            self.detailView.setLabels(dis: res.dist, name: res.name, address: res.address, opentime: res.opentime, count: res.curcount, type: res.type)
+                            self.updateCamera(res.lat, res.lon, 16)
+                            
+                            return true
+                        }
+                    }
                 case 1:
-                    condition = data[i].type == 1 || data[i].type == 2
+                    if res.type == 1 {
+                        let marker = NMFMarker()
+                        self.shownMarkers.append(marker)
+                        marker.position = NMGLatLng(lat: res.lat, lng: res.lon)
+                        marker.mapView = self.mapView
+                        marker.iconImage = NMFOverlayImage(name: "unselectBlue")
+                        marker.userInfo = ["tag": res.type]
+                        
+                        marker.touchHandler = { (marker) -> Bool in
+                            if let selected = self.selectedMarker {
+                                selected.iconImage = NMFOverlayImage(name: "unselectBlue")
+                            }
+                            (marker as! NMFMarker).iconImage = NMFOverlayImage(name: "selectBlue")
+                            self.selectedMarker = (marker as! NMFMarker)
+                            self.detailView.isHidden = false
+                            self.detailView.setLabels(dis: res.dist, name: res.name, address: res.address, opentime: res.opentime, count: res.curcount, type: res.type)
+                            self.updateCamera(res.lat, res.lon, 16)
+                            
+                            return true
+                        }
+                    } else if res.type == 2 {
+                        let marker = NMFMarker()
+                        self.shownMarkers.append(marker)
+                        marker.position = NMGLatLng(lat: res.lat, lng: res.lon)
+                        marker.mapView = self.mapView
+                        marker.iconImage = NMFOverlayImage(name: "unselectOrange")
+                        marker.userInfo = ["tag": res.type]
+                        
+                        marker.touchHandler = { (marker) -> Bool in
+                            if let selected = self.selectedMarker {
+                                selected.iconImage = NMFOverlayImage(name: "unselectOrange")
+                            }
+                            (marker as! NMFMarker).iconImage = NMFOverlayImage(name: "selectOrange")
+                            self.selectedMarker = (marker as! NMFMarker)
+                            self.detailView.isHidden = false
+                            self.detailView.setLabels(dis: res.dist, name: res.name, address: res.address, opentime: res.opentime, count: res.curcount, type: res.type)
+                            self.updateCamera(res.lat, res.lon, 16)
+                            
+                            return true
+                        }
+                    }
                 default:
                     break
-                }
-                if condition{
-                    print("name?:\(data[i].name)")
-                    let marker = NMFMarker()
-                    self.shownMarkers.append(marker)
-                    marker.position = NMGLatLng(lat: data[i].lat, lng: data[i].lon)
-                    marker.mapView = self.mapView
-                    marker.iconImage = NMFOverlayImage(name: "unselected")
-                    
-                    marker.touchHandler = { (marker) -> Bool in
-                        if let selected = self.selectedMarker {
-                            selected.iconImage = NMFOverlayImage(name: "unselected")
-                        }
-                        (marker as! NMFMarker).iconImage = NMFOverlayImage(name: "selected")
-                        self.selectedMarker = (marker as! NMFMarker)
-                        self.detailView.isHidden = false
-                        self.detailView.setLabels(dis: data[i].dist, name: data[i].name, address: data[i].address, opentime: data[i].opentime, count: data[i].curcount, type: data[i].type)
-                        self.updateCamera(data[i].lat, data[i].lon, 16)
-                        
-                        return true
-                    }
                 }
             }
             return
@@ -181,7 +217,16 @@ extension MapVC: NMFMapViewDelegate {
         print("지도 탭 \(latlng.lat),\(latlng.lng)")
         if let selected = selectedMarker {
             updateCamera(curLocationMarker.position.lat, curLocationMarker.position.lng)
-            selected.iconImage = NMFOverlayImage(name: "unselected")
+            switch selected.userInfo["tag"] as? Int {
+            case 0:
+                selected.iconImage = NMFOverlayImage(name: "unselected")
+            case 1:
+                selected.iconImage = NMFOverlayImage(name: "unselectBlue")
+            case 2:
+                selected.iconImage = NMFOverlayImage(name: "unselectOrange")
+            default:
+                break
+            }
             
             selectedMarker = nil
         }
